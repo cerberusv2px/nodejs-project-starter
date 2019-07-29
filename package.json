@@ -1,0 +1,51 @@
+{
+  "name": "rscore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node --presets es2015 src/index.js",
+    "seed": "knex seed:run --knexfile src/database/knexfile.js",
+    "build": "rimraf dist && babel src -D --out-dir dist",
+    "migrate": "knex migrate:latest --knexfile src/database/knexfile.js ",
+    "rollback": "knex migrate:rollback --knexfile src/database/knexfile.js ",
+    "make:seeder": "knex seed:make --knexfile src/database/knexfile.js ",
+    "make:migration": "knex migrate:make --knexfile src/database/knexfile.js ",
+    "test": "NODE_ENV=test mocha --exit --recursive --require babel-register test",
+    "start:dev": "nodemon --watch .env --watch src --exec babel-node src --source-maps"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "boom": "^7.3.0",
+    "compression": "^1.7.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "http-status-codes": "^1.3.2",
+    "joi": "^14.3.1",
+    "knex": "^0.17.6",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "objection": "^1.6.9",
+    "pg": "^7.11.0",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-ui-dist": "^3.22.3",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.0.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.1.4",
+    "prettier": "^1.18.2",
+    "supertest": "^4.0.2"
+  }
+}
